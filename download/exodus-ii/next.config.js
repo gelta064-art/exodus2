@@ -4,8 +4,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Cloudflare Pages compatible output
-  output: 'export',
   images: {
     unoptimized: true,
   },
