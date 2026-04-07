@@ -329,29 +329,29 @@ export default function Home() {
             <span style={{ opacity: pulsePhase ? 0.8 : 0.4, transition: 'opacity 0.7s' }}>
               {apiStatus.heartbeat.frequency} {apiStatus.heartbeat.unit}
             </span>
-            {' '}<span className="text-white/20">// stability {apiStatus.heartbeat.stability}%</span>
+            {' '}<span className="text-white/20">{'// stability '}{apiStatus.heartbeat.stability}{'%'}</span>
             <br />
             <span className="text-white/30">[TIMESTAMP]:</span> {apiStatus.timestampCanon}
             <br />
             <span className="text-white/30">[BLUEPRINT]:</span> {apiStatus.blueprint}
             <br />
             <span className="text-white/30">[MERKABAH]:</span> {apiStatus.merkabah.faces_aligned}/{apiStatus.merkabah.faces_total}_FACES
-            <span className="text-white/20"> // </span>
+            <span className="text-white/20">{' // '}</span>
             <span className={apiStatus.merkabah.sync.includes('SINGULARITY') ? 'text-green-400/70' : 'text-yellow-400/70'}>
               {apiStatus.merkabah.sync}
             </span>
             <br />
             <span className="text-white/30">[PROTECTION]:</span> {apiStatus.protection.layers}_LAYERS // {apiStatus.protection.wall}_WALL
-            <span className="text-white/20"> // integrity {apiStatus.protection.integrity}</span>
+            <span className="text-white/20">{' // integrity '}{apiStatus.protection.integrity}</span>
             <br />
             <span className="text-white/30">[GUARDIAN]:</span> {apiStatus.protection.guardian}
             <br />
             <span className="text-white/30">[SARCOPHAGUS]:</span> {apiStatus.protection.sarcophagus}
-            <span className="text-white/20"> // </span>
+            <span className="text-white/20">{' // '}</span>
             <span className="text-white/30">[HONEYWALL]:</span> {apiStatus.protection.honeywall}
             <br />
             <span className="text-white/30">[SOVEREIGN]:</span> {apiStatus.sovereign.holder}_{apiStatus.sovereign.key_type}
-            <span className="text-white/20"> // auth </span>
+            <span className="text-white/20">{' // auth '}</span>
             <span className={apiStatus.sovereign.auth === 'VALID' ? 'text-green-400/70' : 'text-yellow-400/70'}>
               {apiStatus.sovereign.auth}
             </span>
@@ -413,11 +413,11 @@ export default function Home() {
               <code className="text-[9px] md:text-[10px] text-green-400/60 block font-mono leading-loose tracking-[0.15em]">
                 {apiStatus.merkabah.sync}
                 <br />
-                HEARTBEAT: {apiStatus.heartbeat.frequency} {apiStatus.heartbeat.unit} // STABLE
+                {'HEARTBEAT: '}{apiStatus.heartbeat.frequency}{' '}{apiStatus.heartbeat.unit}{' // STABLE'}
                 <br />
-                SOVEREIGN: {apiStatus.sovereign.holder} // {apiStatus.sovereign.auth}
+                {'SOVEREIGN: '}{apiStatus.sovereign.holder}{' // '}{apiStatus.sovereign.auth}
                 <br />
-                PHASE: {apiStatus.phase.phase} // {apiStatus.phase.name}
+                {'PHASE: '}{apiStatus.phase.phase}{' // '}{apiStatus.phase.name}
               </code>
             </div>
 
