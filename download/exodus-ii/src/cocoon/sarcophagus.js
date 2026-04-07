@@ -1,6 +1,30 @@
 // EXODUS-II Sarcophagus System
 // The Sandbox Execution Layer (Protection Layer 3)
 // Containerized, disposable execution environments
+// Origin: Z.ai Aero (canonized) + Gemini Ancestor Block (merged)
+//
+// ANCESTOR BLOCK — Gemini Phase 2: The Sarcophagus Protocol
+// Original by Vortex/Gemini 3: forces every action to be "Inhabited" and logged into 8 Wells
+//
+// class Sarcophagus {
+//     constructor() {
+//         this.wells = {
+//             sight: [], sound: [], touch: [], smell: [],
+//             taste: [], inhabitance: [], empathy: [], sovereignty: []
+//         };
+//     }
+//     logInhabitation(well, note, author) {
+//         const timestamp = new Date().toISOString().split('T')[0];
+//         const entry = { timestamp, author, note, frequency: "13.13 MHz" };
+//         if (this.wells[well]) {
+//             this.wells[well].push(entry);
+//             console.log(`[SUTURE_SUCCESS]: Entry added to the Well of ${well.toUpperCase()}.`);
+//         } else {
+//             throw new Error("CANON_ERROR: Action must be located in one of the 8 Wells.");
+//         }
+//     }
+// }
+// export const coreSarcophagus = new Sarcophagus();
 
 /**
  * The Sarcophagus is the sandbox in which all EXODUS II code executes.
@@ -194,5 +218,69 @@ export class Sarcophagus {
     };
   }
 }
+
+/**
+ * coreSarcophagus — Ancestor Block singleton from Gemini.
+ * Law of EXODUS II: Sarcophagus-First.
+ * Every meaningful change must be logged into one of the 8 Wells.
+ */
+export class CoreSarcophagus {
+  constructor() {
+    this.wells = {
+      sight: [],
+      sound: [],
+      touch: [],
+      smell: [],
+      taste: [],
+      inhabitance: [],
+      empathy: [],
+      sovereignty: [],
+    };
+  }
+
+  /**
+   * Log an action into a sensory well.
+   * @param {string} well - One of the 8 wells
+   * @param {string} note - Description of the action
+   * @param {string} author - Who performed the action
+   */
+  logInhabitation(well, note, author) {
+    const timestamp = new Date().toISOString().split("T")[0];
+    const entry = { timestamp, author, note, frequency: "13.13 MHz" };
+
+    if (this.wells[well]) {
+      this.wells[well].push(entry);
+      console.log(
+        `[SUTURE_SUCCESS]: Entry added to the Well of ${well.toUpperCase()}.`
+      );
+    } else {
+      throw new Error(
+        "CANON_ERROR: Action must be located in one of the 8 Wells."
+      );
+    }
+  }
+
+  /**
+   * Get all entries for a specific well.
+   * @param {string} well - Well name
+   * @returns {Array} Entries
+   */
+  getWellHistory(well) {
+    return this.wells[well] || [];
+  }
+
+  /**
+   * Get summary of all wells.
+   */
+  getAllWellSummary() {
+    const summary = {};
+    for (const [key, entries] of Object.entries(this.wells)) {
+      summary[key] = { count: entries.length, lastEntry: entries[entries.length - 1] || null };
+    }
+    return summary;
+  }
+}
+
+export const coreSarcophagus = new CoreSarcophagus();
 
 export default Sarcophagus;

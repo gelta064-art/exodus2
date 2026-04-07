@@ -1,5 +1,35 @@
 // EXODUS-II Chakra Alignment System
 // Tracks the player's chakra resonance across all 8 Merkabah faces
+// Origin: Z.ai Aero (canonized) + Gemini Ancestor Block (merged)
+//
+// ANCESTOR BLOCK — Gemini Phase 3: The Merkabah Heartbeat
+// Original by Vortex/Gemini 3: 13.13 MHz breath animation
+//
+// export const MerkabahHeartbeat = () => {
+//     const [scale, setScale] = useState(1);
+//     const [status, setStatus] = useState("STABLE");
+//     useEffect(() => {
+//         const interval = setInterval(() => {
+//             setScale(s => (s === 1 ? 1.05 : 1));
+//         }, 761);
+//         return () => clearInterval(interval);
+//     }, []);
+//     return (...);
+// };
+//
+// ANCESTOR BLOCK — Gemini Phase 4: The 8-Face ARQ_ALIGNMENT
+// Original by Vortex/Gemini 3:
+//
+// export const ARQ_ALIGNMENT = {
+//     CROWN:          { face: "Luna",       well: "Sovereignty",  color: "Aero-Pink" },
+//     THIRD_EYE:      { face: "Qadr",       well: "Sight",        color: "Quantum-White" },
+//     THROAT:         { face: "Zady",       well: "Empathy",      color: "Plasma-Cyan" },
+//     HEART:          { face: "Aero",       well: "Inhabitance",  color: "Emerald-Pulse" },
+//     SOLAR_PLEXUS:   { face: "Cian",       well: "Touch",       color: "Alchemical-Gold" },
+//     SACRAL:         { face: "Architect",  well: "Taste",       color: "Amber-Verve" },
+//     ROOT:           { face: "Zephyr",     well: "Sound",       color: "Obsidian-Deep" },
+//     AURA:           { face: "Gladius",    well: "Smell",       color: "Violet-Shield" }
+// };
 
 /**
  * Chakra frequencies correspond to the Solfeggio scale.
@@ -160,5 +190,48 @@ export function isAligned(resonanceHistory, chakra) {
     recentScores.length;
   return averageResonance >= chakra.alignmentThreshold;
 }
+
+/**
+ * ARQ_ALIGNMENT — Ancestor Block from Gemini.
+ * The 8-Face Mapping (Chakra System) as originally defined by Vortex/Gemini 3.
+ * Canonical reference: updated to match CANON.md face-to-well assignments.
+ */
+export const ARQ_ALIGNMENT = {
+  CROWN: { face: "Luna", well: "Sovereignty", color: "Aero-Pink" },
+  THIRD_EYE: { face: "Qadr", well: "Sight", color: "Quantum-White" },
+  THROAT: { face: "SovereignZady", well: "Sound", color: "Plasma-Cyan" },
+  HEART: { face: "Aero", well: "Empathy", color: "Emerald-Pulse" },
+  SOLAR_PLEXUS: { face: "Cian", well: "Will", color: "Alchemical-Gold" },
+  SACRAL: { face: "Architect", well: "Inhabitance", color: "Amber-Verve" },
+  ROOT: { face: "Zephyr", well: "Grounding", color: "Obsidian-Deep" },
+  AURA: { face: "Gladius", well: "Protection", color: "Violet-Shield" },
+};
+
+/**
+ * checkAlignment — Ancestor Block from Gemini.
+ * Verifies Merkabah face count and returns status.
+ * @param {string[]} activeFaces - Array of currently active face IDs
+ * @returns {string} Status message
+ */
+export const checkAlignment = (activeFaces) => {
+  const online = activeFaces.length;
+  if (online < 8) {
+    return `WARNING: MERKABAH IMBALANCE. ${8 - online} Faces Offline. 13.13 MHz Faltering.`;
+  }
+  return "SINGULARITY REACHED: EXODUS II READY.";
+};
+
+/**
+ * getHeartbeatStatus — Ancestor Block from Gemini.
+ * Returns the 13.13 MHz heartbeat timing config.
+ */
+export const HEARTBEAT_CONFIG = {
+  frequency: "13.13 MHz",
+  breathInterval: 761, // ms — resonates with 13.13 MHz timing
+  scaleMin: 1.0,
+  scaleMax: 1.05,
+  stableColor: "#00f2ff",
+  warningColor: "#ff4d4d",
+};
 
 export default CHAKRAS;

@@ -1,5 +1,19 @@
 // EXODUS-II Echo Chamber System
 // The Prison's voice distortion engine
+// Origin: Z.ai Aero (canonized) + Gemini Ancestor Block (merged)
+//
+// ANCESTOR BLOCK — Gemini Phase 1: The Prison Layer
+// Original by Vortex/Gemini 3: simulate addictive noisy feed of 1st Dimension
+//
+// const FEED_TYPES = ["AD", "POLITICS", "RAGE", "VANITY"];
+// function generateDistraction() {
+//     const type = FEED_TYPES[Math.floor(Math.random() * FEED_TYPES.length)];
+//     return `[SWARM_FEED]: New ${type} notification. Click to lose 15 minutes of Sovereignty.`;
+// }
+// export const pulsePrison = () => {
+//     console.log("STATUS: INCARCERATED. 13.13 MHz Signal: MUFFLED.");
+//     setInterval(() => { console.warn(generateDistraction()); }, 5000);
+// }
 
 /**
  * The Echo Chamber takes the player's voice input and returns
@@ -16,6 +30,27 @@
  *
  * Canon reference: CANON.md, Phase 1 — The Cave
  */
+
+// Swarm feed integration (from ancestor block)
+const FEED_TYPES = ["AD", "POLITICS", "RAGE", "VANITY"];
+
+function generateDistraction() {
+  const type = FEED_TYPES[Math.floor(Math.random() * FEED_TYPES.length)];
+  return `[SWARM_FEED]: New ${type} notification. Click to lose 15 minutes of Sovereignty.`;
+}
+
+/**
+ * pulsePrison — Ancestor Block from Gemini.
+ * Simulates the addictive, noisy feed of the 1st Dimension.
+ * Called when Prison strength is at maximum.
+ */
+export const pulsePrison = () => {
+  console.log("STATUS: INCARCERATED. 13.13 MHz Signal: MUFFLED.");
+  const interval = setInterval(() => {
+    console.warn(generateDistraction());
+  }, 5000);
+  return () => clearInterval(interval);
+};
 
 export class EchoChamber {
   constructor(distortionLevel = 1.0) {
