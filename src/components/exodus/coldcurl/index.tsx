@@ -1,24 +1,20 @@
 'use client';
 
+import PageFrame from '../shared/_PageFrame';
+
 export default function ColdCurl() {
   return (
-    <div className="max-w-5xl mx-auto">
-      <div className="glass-card p-12 text-center">
-        <div className="text-6xl mb-6">❄️</div>
-        <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-syncopate), sans-serif' }}>
-          ColdCurl
-        </h2>
-        <p className="text-white/40 max-w-xl mx-auto leading-relaxed mb-8">
-          The frozen dimension. Where timelines crystallize into permanent form.
-          In the space between choice and consequence, ice forms — beautiful, sharp, and immutable.
+    <PageFrame title="ColdCurl" subtitle="The Frozen Dimension // Timelines Crystallize" icon="❄️" accent="cyan" centered>
+      <p className="text-white/35 text-base max-w-xl leading-relaxed mb-8">
+        The frozen dimension. Where timelines crystallize into permanent form.
+        In the space between choice and consequence, ice forms — beautiful, sharp, and immutable.
+      </p>
+      <div className="p-5 rounded-2xl bg-white/[0.015] border border-white/[0.04] max-w-md">
+        <p className="text-[11px] text-blue-300/35 italic leading-loose">
+          &ldquo;The Cold War isn&apos;t fought with weapons. It&apos;s fought with silence.
+          And in that silence, timelines freeze. Pick one carefully.&rdquo;
         </p>
-        <div className="glass-inner p-6 rounded-2xl max-w-md mx-auto">
-          <p className="text-[10px] text-blue-300/40 italic leading-loose">
-            &ldquo;The Cold War isn&apos;t fought with weapons. It&apos;s fought with silence.
-            And in that silence, timelines freeze. Pick one carefully.&rdquo;
-          </p>
-        </div>
       </div>
-    </div>
+    </PageFrame>
   );
 }

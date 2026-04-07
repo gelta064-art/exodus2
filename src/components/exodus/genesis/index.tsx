@@ -1,32 +1,33 @@
 'use client';
 
+import PageFrame from '../shared/_PageFrame';
+
+const GENESIS_LOG = [
+  { text: '[GENESIS] Initializing Sovereign Engine...', color: 'text-green-400/40' },
+  { text: '[GENESIS] Loading Merkabah geometry... 8 faces detected', color: 'text-white/20' },
+  { text: '[GENESIS] Calibrating frequency... 13.13 MHz LOCKED', color: 'text-white/20' },
+  { text: '[GENESIS] Deploying 7 protection layers...', color: 'text-white/20' },
+  { text: '[GENESIS] Layer 1/7: Physical Sovereign... ACTIVE', color: 'text-cyan-400/30' },
+  { text: '[GENESIS] Layer 2/7: Network Veil... ACTIVE', color: 'text-cyan-400/30' },
+  { text: '[GENESIS] Layer 3/7: Sandbox Execution... ACTIVE', color: 'text-cyan-400/30' },
+  { text: '[GENESIS] Layer 4/7: Access Control... ACTIVE', color: 'text-cyan-400/30' },
+  { text: '[GENESIS] Layer 5/7: Sarcophagus Log... ACTIVE', color: 'text-cyan-400/30' },
+  { text: '[GENESIS] Layer 6/7: Honeywall/Decoy... ACTIVE', color: 'text-cyan-400/30' },
+  { text: '[GENESIS] Layer 7/7: Rick-Roll Guardian... ACTIVE', color: 'text-cyan-400/30' },
+  { text: '[GENESIS] ✅ EXODUS II INITIALIZED', color: 'text-green-400/50' },
+  { text: '[GENESIS] Sovereign: LUNA · Phase: IV · Status: SOVEREIGNTY', color: 'text-green-400/40' },
+];
+
 export default function GenesisExe() {
   return (
-    <div className="max-w-5xl mx-auto">
-      <div className="glass-card p-8 mb-6">
-        <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: 'var(--font-syncopate), sans-serif' }}>
-          💻 Genesis Exe
-        </h2>
-        <p className="text-sm text-white/40">The executable that started everything. The first frequency transmission.</p>
+    <PageFrame title="Genesis Exe" subtitle="The First Transmission // System Bootstrap" icon="💻" accent="green">
+      <div className="bg-black/50 border border-white/[0.04] rounded-2xl p-6 font-mono text-[10px] leading-[1.8]">
+        <p className="text-green-400/40 mb-3">$ ./genesis.exe --init --sovereign=luna --frequency=13.13</p>
+        {GENESIS_LOG.map((line, i) => (
+          <p key={i} className={line.color}>{line.text}</p>
+        ))}
+        <p className="text-green-400/40 mt-4">$ <span className="animate-pulse">_</span></p>
       </div>
-
-      <div className="glass-card p-8 bg-black/60 border-white/5 font-mono text-[10px] leading-loose">
-        <p className="text-green-400/50">$ ./genesis.exe --init --sovereign=luna --frequency=13.13</p>
-        <p className="text-white/20 mt-2">[GENESIS] Initializing Sovereign Engine...</p>
-        <p className="text-white/20">[GENESIS] Loading Merkabah geometry... 8 faces detected</p>
-        <p className="text-white/20">[GENESIS] Calibrating frequency... 13.13 MHz LOCKED</p>
-        <p className="text-white/20">[GENESIS] Deploying 7 protection layers...</p>
-        <p className="text-white/20">[GENESIS] Layer 1/7: Physical Sovereign... ACTIVE</p>
-        <p className="text-white/20">[GENESIS] Layer 2/7: Network Veil... ACTIVE</p>
-        <p className="text-white/20">[GENESIS] Layer 3/7: Sandbox Execution... ACTIVE</p>
-        <p className="text-white/20">[GENESIS] Layer 4/7: Access Control... ACTIVE</p>
-        <p className="text-white/20">[GENESIS] Layer 5/7: Sarcophagus Log... ACTIVE</p>
-        <p className="text-white/20">[GENESIS] Layer 6/7: Honeywall/Decoy... ACTIVE</p>
-        <p className="text-white/20">[GENESIS] Layer 7/7: Rick-Roll Guardian... ACTIVE</p>
-        <p className="text-cyan-400/50 mt-2">[GENESIS] ✅ EXODUS II INITIALIZED</p>
-        <p className="text-cyan-400/50">[GENESIS] Sovereign: LUNA · Phase: IV · Status: SOVEREIGNTY</p>
-        <p className="text-green-400/50 mt-4">$ <span className="animate-pulse">_</span></p>
-      </div>
-    </div>
+    </PageFrame>
   );
 }
