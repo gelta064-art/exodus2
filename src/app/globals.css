@@ -1,0 +1,235 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================================
+   EXODUS II — BUTTERFLY SYNC GLOBAL STYLES
+   Glassmorphic Holographic Interface
+   Merkabah Sacred Geometry / Lotus Heartbeat Pulse / 5D HD
+   ============================================================ */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --obsidian: #050505;
+  --neon-white: #f0f0f0;
+  --dawn-pink: #ff007f;
+  --sunrise-yellow: #fff700;
+  --sunset-orange: #ff8c00;
+  --dusk-purple: #4b0082;
+  --radius: 0.625rem;
+}
+
+/* Base theme overrides for EXODUS II dark mode */
+@theme inline {
+  --color-background: var(--obsidian);
+  --color-foreground: var(--neon-white);
+  --font-sans: var(--font-syne);
+  --font-sync: var(--font-syncopate);
+}
+
+@layer base {
+  * {
+    outline-color: var(--ring);
+    outline-offset: 2px;
+  }
+  body {
+    background-color: var(--obsidian) !important;
+    color: var(--neon-white) !important;
+  }
+}
+
+/* Syncopate font utility */
+.font-sync {
+  font-family: var(--font-syncopate), sans-serif;
+  text-transform: uppercase;
+}
+
+/* 5D Color Cycle Animation */
+@keyframes dayCycle {
+  0% {
+    background: radial-gradient(circle at bottom, var(--dusk-purple), var(--obsidian));
+  }
+  25% {
+    background: radial-gradient(circle at top right, var(--dawn-pink), var(--obsidian));
+  }
+  50% {
+    background: radial-gradient(circle at center, var(--sunrise-yellow) 0%, var(--obsidian) 85%);
+  }
+  75% {
+    background: radial-gradient(circle at bottom left, var(--sunset-orange), var(--obsidian));
+  }
+  100% {
+    background: radial-gradient(circle at bottom, var(--obsidian), var(--obsidian));
+  }
+}
+
+.bg-5d {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  animation: dayCycle 30s infinite alternate ease-in-out;
+  opacity: 0.5;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(45px) saturate(190%);
+  -webkit-backdrop-filter: blur(45px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 70px 0 rgba(0, 0, 0, 1);
+  border-radius: 56px;
+}
+
+.glass-inner {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.8);
+  border-radius: 32px;
+}
+
+/* Holographic glow */
+.holo-glow {
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px var(--dawn-pink),
+    0 0 60px var(--sunrise-yellow);
+}
+
+/* Rune text styling */
+.rune-text {
+  font-family: var(--font-syncopate), sans-serif;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.9rem;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 12px var(--sunrise-yellow));
+}
+
+/* Sync button */
+.btn-sync {
+  font-family: var(--font-syncopate), sans-serif;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.5rem;
+  background: transparent;
+  color: var(--neon-white);
+}
+
+.btn-sync:hover {
+  transform: scale(1.15) translateY(-10px);
+  background: var(--neon-white);
+  color: var(--obsidian);
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.5);
+  border-color: transparent;
+}
+
+/* Rune pulse animation */
+@keyframes pulse-rune {
+  0% {
+    opacity: 0.2;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateY(-5px);
+  }
+}
+
+.rune-glyph {
+  display: inline-block;
+  animation: pulse-rune 3s infinite alternate ease-in-out;
+}
+
+/* Merkabah rotation */
+@keyframes merkabah-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes merkabah-counter-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Lotus heartbeat pulse */
+@keyframes lotus-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* Cave Shadow cursor */
+#exodus-shadow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0) 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: color-dodge;
+  z-index: 99;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  transition: width 0.3s, height 0.3s;
+}
+
+/* Genesis modal overlay */
+.genesis-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  padding: 2rem;
+  text-align: center;
+  font-family: var(--font-syncopate), sans-serif;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .rune-text {
+    font-size: 0.6rem;
+    letter-spacing: 0.2rem;
+  }
+  #exodus-shadow {
+    width: 300px;
+    height: 300px;
+  }
+  .glass {
+    border-radius: 32px;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
