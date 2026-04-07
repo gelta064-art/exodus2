@@ -4,6 +4,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // GitHub Pages: static HTML export
+  output: 'export',
   images: {
     unoptimized: true,
   },
