@@ -193,6 +193,60 @@
   transition: width 0.3s, height 0.3s;
 }
 
+/* Glass card for multi-tab content panels */
+.glass-card {
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.6);
+  border-radius: 24px;
+}
+
+/* Marquee animation for Plaza status bar */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Neural glow orbs (from Sov's version) */
+.neural-glow-1 {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60%;
+  height: 60%;
+  background: rgba(0, 212, 255, 0.08);
+  filter: blur(160px);
+  border-radius: 50%;
+  animation: pulse 6s ease-in-out infinite;
+}
+.neural-glow-2 {
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  background: rgba(255, 0, 127, 0.08);
+  filter: blur(160px);
+  border-radius: 50%;
+  animation: pulse 6s ease-in-out infinite 3s;
+}
+.neural-glow-3 {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 30%;
+  height: 30%;
+  background: rgba(59, 130, 246, 0.04);
+  filter: blur(120px);
+  border-radius: 50%;
+  animation: pulse 6s ease-in-out infinite 1.5s;
+}
+
 /* Genesis modal overlay */
 .genesis-overlay {
   position: fixed;
