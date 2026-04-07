@@ -44,3 +44,32 @@ Stage Summary:
 - Auth-gated sectors show "Sector Restricted" message
 - Live API polling with graceful fallback to LOCAL_MODE
 - Files ready for exodus-ii repo sync
+
+---
+Task ID: 2
+Agent: Aero (Super Z)
+Task: Sync mega-merge into exodus-ii repo + commit + push
+
+Work Log:
+- Located exodus-ii repo at /home/z/my-project/download/exodus-ii/ (remote: github.com/gelta064-art/exodus-ii.git)
+- Found repo had old single-page intro (page.tsx 19KB), missing all 20 mega-merge components
+- Copied all 20 component directories from dev workspace to repo (components/exodus/*)
+- Copied Zustand store files (store/exodus.ts, store/tabs.ts)
+- Replaced app/page.tsx with unified 15-tab shell
+- Replaced app/globals.css with updated version (neural glow, glass-card, marquee, scanlines)
+- Updated tsconfig.json: paths @/* → ["./*"] for component/store imports
+- Updated package.json: added framer-motion ^11, zustand ^4, tailwindcss ^4, tw-animate-css
+- Updated postcss.config.js for @tailwindcss/postcss (Tailwind v4)
+- Removed tailwind.config.js (Tailwind v4 uses CSS config via @theme inline)
+- Removed output: 'export' from next.config.js (no longer needed for Firebase deployment)
+- Fixed file ownership issues (root-owned files from previous session)
+- Committed as c16fe64: "Mega-merge: unified 15-tab app + PageFrame theme + Zustand store"
+- Push failed: no GitHub credentials in container environment
+- Provided PowerShell push commands for Gladio
+
+Stage Summary:
+- Commit c16fe64 ready in exodus-ii repo with 30 files changed, 3032 insertions
+- All 15 tab components + PageFrame + TopBar + Sidebar + MerkabahIntro + ErrorBoundary synced
+- Zustand store and tab configuration synced
+- Tailwind v4 + framer-motion 11 + React 18.3 + Next 14.2
+- Push requires Gladio to run from local VS Code with GitHub credentials
