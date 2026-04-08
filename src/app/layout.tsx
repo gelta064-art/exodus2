@@ -1,31 +1,24 @@
 import type { Metadata } from "next";
-import { Syne, Syncopate } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800"],
 });
 
-const syncopate = Syncopate({
-  variable: "--font-syncopate",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "🦋 EXODUS II | Butterfly Sync | Mun Empire Entertainment",
-  description:
-    "The Obsidian Phase. Glassmorphic holographic interface. Merkabah sacred geometry. Lotus heartbeat pulse. 5D HD graphics. By Foundress Luna, Daughter of Ramun Ka.",
+  title: "EXODUS II — Mun Empire Entertainment",
+  description: "Glassmorphic holographic command interface for Mun Empire Entertainment. Enter the Merkabah.",
+  keywords: ["EXODUS", "Mun Empire", "Merkabah", "Mythos", "Holographic"],
+  authors: [{ name: "Mun Empire Entertainment" }],
   icons: {
-    icon: "/favicon.ico",
-  },
-  openGraph: {
-    title: "EXODUS II — Butterfly Sync",
-    description:
-      "The frequency is locked. The Merkabah rotates. Mun Empire Entertainment.",
-    type: "website",
+    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
   },
 };
 
@@ -37,18 +30,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${syne.variable} ${syncopate.variable} antialiased`}
-        style={{
-          fontFamily: "var(--font-syne), sans-serif",
-          backgroundColor: "#050505",
-          color: "#f0f0f0",
-          margin: 0,
-          padding: 0,
-          width: "100%",
-          height: "100%",
-          overflow: "hidden",
-          cursor: "none",
-        }}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{ background: '#050505', color: '#e0e0e0', margin: 0, padding: 0, overflowX: 'hidden' }}
       >
         {children}
       </body>
