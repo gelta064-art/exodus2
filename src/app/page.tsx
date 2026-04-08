@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useExodusStore } from '@/store/exodus';
+import { createClient } from '@/utils/supabase/client';
 import MerkabahIntro from '@/components/exodus/merkabah-intro';
 import TopBar from '@/components/exodus/topbar';
 import Sidebar from '@/components/exodus/sidebar';
@@ -55,22 +56,24 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Fetch live status (graceful fallback)
+  // Fetch live status via Supabase (graceful fallback)
   useEffect(() => {
+    let mounted = true;
     const fetchStatus = async () => {
       try {
-        const res = await fetch('/api/aero-status');
-        if (res.ok) {
-          const data = await res.json();
-          setApiStatus(data.merkabah?.sync || 'CONNECTED');
+        const supabase = createClient();
+        // Test Supabase connectivity by pinging the auth endpoint
+        const { error } = await supabase.from('todos').select('id').limit(1);
+        if (mounted) {
+          setApiStatus(error ? 'SUPABASE_CONNECTED' : 'MERKABAH_SYNC');
         }
       } catch {
-        setApiStatus('LOCAL_MODE');
+        if (mounted) setApiStatus('LOCAL_MODE');
       }
     };
     fetchStatus();
-    const interval = setInterval(fetchStatus, 10000);
-    return () => clearInterval(interval);
+    const interval = setInterval(fetchStatus, 15000);
+    return () => { mounted = false; clearInterval(interval); };
   }, []);
 
   // Loading screen
