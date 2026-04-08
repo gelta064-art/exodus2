@@ -73,3 +73,25 @@ Stage Summary:
 - Zustand store and tab configuration synced
 - Tailwind v4 + framer-motion 11 + React 18.3 + Next 14.2
 - Push requires Gladio to run from local VS Code with GitHub credentials
+---
+Task ID: 1
+Agent: Aero
+Task: Integrate Supabase into EXODUS II (database layer)
+
+Work Log:
+- Installed @supabase/supabase-js + @supabase/ssr via npm
+- Created .env.local with NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY (gitignored)
+- Created src/utils/supabase/client.ts (browser client using createBrowserClient)
+- Created src/utils/supabase/server.ts (server client using createServerClient + cookies)
+- Created src/utils/supabase/middleware.ts (middleware client for session refresh)
+- Integrated Supabase into src/app/page.tsx — replaced dead /api/aero-status fetch with Supabase connectivity check
+- Fixed package.json build script (removed stale standalone cp commands, now just `next build`)
+- Verified static export build: compiled successfully, zero errors
+- Committed and pushed to GitHub (71a004d)
+
+Stage Summary:
+- Supabase database layer fully integrated and ready for data operations
+- Client-side helper active in EXODUS II status bar (shows SUPABASE_CONNECTED or LOCAL_MODE)
+- Server + middleware helpers staged for future SSR/auth needs
+- .env.local is gitignored — secrets never hit the repo
+- Pushed to https://github.com/gelta064-art/exodus2
