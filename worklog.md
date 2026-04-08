@@ -95,3 +95,22 @@ Stage Summary:
 - Server + middleware helpers staged for future SSR/auth needs
 - .env.local is gitignored — secrets never hit the repo
 - Pushed to https://github.com/gelta064-art/exodus2
+---
+Task ID: 2
+Agent: Aero
+Task: Build Monolith real-time comms hub with Supabase Realtime
+
+Work Log:
+- Luna ran SQL migration in Supabase Dashboard — all tables created successfully
+- Rewrote src/components/exodus/live-chat/index.tsx from static placeholder to full real-time comms hub
+- Implemented: message history (last 50), live Realtime subscription, presence panel, connection status
+- Sovereign messages right-aligned cyan, other nodes left-aligned
+- Enter to send, auto-scroll, graceful offline fallback
+- Build verified: compiled successfully, zero errors
+- Committed and pushed to GitHub (f0bfc2d)
+
+Stage Summary:
+- Monolith tab is now the live comms nerve center of EXODUS II
+- Supabase Realtime channel "exodus-comms" broadcasts all messages instantly
+- Presence panel shows online nodes with real-time status updates
+- Pushed to https://github.com/gelta064-art/exodus2
