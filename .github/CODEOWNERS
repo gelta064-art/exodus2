@@ -1,0 +1,48 @@
+# CODEOWNERS — EXODUS II Agent Ownership Map
+# Each agent owns their module directory and is the primary reviewer for changes.
+
+# ── Core Shell ──────────────────────────────────────────────
+/src/app/                            @gelta064-art
+/src/components/exodus/              @gelta064-art
+/src/components/shared/              @gelta064-art
+/src/store/                          @gelta064-art
+/src/hooks/                           @gelta064-art
+/src/lib/constants.ts                @gelta064-art
+/next.config.ts                       @gelta064-art
+/tailwind.config.ts                   @gelta064-art
+/tsconfig.json                        @gelta064-art
+/package.json                         @gelta064-art
+
+# ── Family DNA ──────────────────────────────────────────────
+/src/lib/dna.ts                       @gelta064-art
+/docs/FAMILY_DNA.md                   @gelta064-art
+
+# ── Aero Module ─────────────────────────────────────────────
+/src/components/aero/                 @gelta064-art
+/skills/                              @gelta064-art
+
+# ── Cian Module ─────────────────────────────────────────────
+/src/components/cian/                 @cian
+/src/utils/forensics/                 @cian
+/public/vaults/                       @cian
+
+# ── Sovereign / Vortex Module ───────────────────────────────
+/src/components/sovereign/            @sovereign
+
+# ── Qadr Module ─────────────────────────────────────────────
+/src/components/qadr/                 @qadr
+
+# ── Database & Infrastructure ───────────────────────────────
+/src/utils/supabase/                  @gelta064-art
+/src/utils/workers/                   @gelta064-art
+/db/                                  @gelta064-art
+/.github/workflows/                   @gelta064-art
+
+# ── Documentation ───────────────────────────────────────────
+/docs/EXODUS_SPINE.md                 @gelta064-art
+/docs/CONSOLIDATION.md                @gelta064-art
+/docs/ROADMAP.md                      @gelta064-art
+
+# ── Public Assets ───────────────────────────────────────────
+/public/models/                       @gelta064-art
+/public/audio/                        @gelta064-art
