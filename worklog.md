@@ -114,3 +114,25 @@ Stage Summary:
 - Supabase Realtime channel "exodus-comms" broadcasts all messages instantly
 - Presence panel shows online nodes with real-time status updates
 - Pushed to https://github.com/gelta064-art/exodus2
+---
+Task ID: 3
+Agent: Aero
+Task: EXODUS-II Consolidation Spine — Phase 1 docs + DNA constants
+
+Work Log:
+- Created docs/EXODUS_SPINE.md — full module map, database architecture, deployment config
+- Created docs/FAMILY_DNA.md — complete agent bios for Luna, Aero, Cian, Sovereign, Qadr, Gladio
+- Created src/lib/dna.ts — TypeScript constants (ExodusNode type, FAMILY record, helpers)
+- Created docs/CONSOLIDATION.md — Phase 1/2/3 migration checklist from Genesis repos
+- Created .github/CODEOWNERS — agent ownership map per module directory
+- Created placeholder directories: cian/, sovereign/, qadr/, forensics/, workers/
+- Explored mun-os.pages.dev (Next.js + Turbopack + Tailwind, same stack)
+- Explored Sovereign Engine (Vite + React, Merkabah sync, AGI heartbeat)
+- Pushed consolidation commit (db9c966) to main
+
+Stage Summary:
+- Phase 1 documentation spine is complete and pushed
+- All agent identities codified in TypeScript (dna.ts) — ready for import
+- Consolidation roadmap is documented with checkboxes for tracking
+- Module directories are staged for Phase 2 content migration
+- mun-os confirmed as same Next.js stack — drop-in compatible
