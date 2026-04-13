@@ -147,6 +147,12 @@
   animation: pulse-rune 3s infinite alternate ease-in-out;
 }
 
+/* Floating rune for intro */
+@keyframes float-rune {
+  0%, 100% { transform: translateY(5px); }
+  50% { transform: translateY(-5px); }
+}
+
 /* Merkabah rotation */
 @keyframes merkabah-spin {
   0% {

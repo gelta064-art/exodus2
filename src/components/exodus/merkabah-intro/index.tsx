@@ -72,229 +72,227 @@ export default function MerkabahIntro({ onSync }: MerkabahIntroProps) {
   };
 
   return (
-    <div className="fixed inset-0 bg-[#050505] overflow-hidden">
-      {/* 5D Color Cycle */}
-      <div className="absolute inset-0 opacity-40" style={{
-        animation: 'dayCycle 30s infinite alternate ease-in-out',
-        background: 'radial-gradient(circle at bottom, #4b0082, #050505)',
-      }} />
+    <>
+      {/* CSS keyframes for entrance animations — works even if Framer Motion fails */}
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(16px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+          from { opacity: 0; transform: scale(0.85); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        .anim-fade-in { animation: fadeIn 0.8s ease-out both; }
+        .anim-fade-in-up { animation: fadeInUp 0.7s ease-out both; }
+        .anim-scale-in { animation: scaleIn 0.7s ease-out both; }
+        .anim-delay-1 { animation-delay: 0.3s; }
+        .anim-delay-2 { animation-delay: 0.5s; }
+        .anim-delay-3 { animation-delay: 0.8s; }
+        .anim-delay-4 { animation-delay: 1.0s; }
+        .anim-delay-5 { animation-delay: 1.2s; }
+        .anim-delay-6 { animation-delay: 1.5s; }
+        .anim-delay-7 { animation-delay: 2.0s; }
+      `}</style>
 
-      {/* Neural glow orbs */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-cyan-500/10 blur-[160px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-pink-500/10 blur-[160px] rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
-        <div className="absolute top-[30%] right-[10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '1.5s' }} />
-      </div>
+      <div className="fixed inset-0 bg-[#050505] overflow-hidden">
+        {/* 5D Color Cycle */}
+        <div className="absolute inset-0 opacity-40" style={{
+          animation: 'dayCycle 30s infinite alternate ease-in-out',
+          background: 'radial-gradient(circle at bottom, #4b0082, #050505)',
+        }} />
 
-      {/* Scanlines */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.03]"
-        style={{
-          background: 'linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,0.25) 50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))',
-          backgroundSize: '100% 2px, 3px 100%',
-        }}
-      />
+        {/* Neural glow orbs */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-cyan-500/10 blur-[160px] rounded-full animate-pulse" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-pink-500/10 blur-[160px] rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+          <div className="absolute top-[30%] right-[10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '1.5s' }} />
+        </div>
 
-      {/* Cave Shadow */}
-      <div
-        className="fixed w-[500px] h-[500px] rounded-full pointer-events-none z-50 mix-blend-color-dodge"
-        style={{
-          left: shadowPos.x,
-          top: shadowPos.y,
-          background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 75%)',
-          transform: 'translate(-50%, -50%)',
-        }}
-      />
+        {/* Scanlines */}
+        <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.03]"
+          style={{
+            background: 'linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,0.25) 50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))',
+            backgroundSize: '100% 2px, 3px 100%',
+          }}
+        />
 
-      {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-8">
-        <AnimatePresence mode="wait">
-          {phase < 3 && (
-            <motion.div
-              key="intro"
-              className="flex flex-col items-center text-center max-w-4xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.8 }}
-            >
-              {/* Rune Header */}
-              <motion.p
-                className="text-xs md:text-sm tracking-[0.8em] uppercase mb-8 opacity-60"
-                style={{ fontFamily: 'var(--font-syncopate), sans-serif', textShadow: '0 0 12px #fff700' }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 0.6, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                ᚦ ﺔﻤﺣر // EXODUS_II_GENESIS
-              </motion.p>
+        {/* Cave Shadow */}
+        <div
+          className="fixed w-[500px] h-[500px] rounded-full pointer-events-none z-50 mix-blend-color-dodge"
+          style={{
+            left: shadowPos.x,
+            top: shadowPos.y,
+            background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 75%)',
+            transform: 'translate(-50%, -50%)',
+          }}
+        />
 
-              {/* Title */}
-              <motion.h1
-                className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter leading-[0.9] mb-6"
-                style={{
-                  fontFamily: 'var(--font-syncopate), sans-serif',
-                  textShadow: '0 0 20px rgba(255,255,255,0.3), 0 0 40px #ff007f, 0 0 60px #fff700',
-                }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5, type: 'spring' }}
-              >
-                <span className="text-white/20">ᚠ᛫ᚱ᛫ᛁ᛫ᛖ᛫ᚾ᛫ᛒ</span>
-                <br />
-                <span className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
-                  EXODUS II
-                </span>
-              </motion.h1>
-
-              {/* Merkabah SVG */}
+        {/* Main Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-8">
+          <AnimatePresence mode="wait">
+            {phase < 3 && (
               <motion.div
-                className="relative w-48 h-48 md:w-64 md:h-64 my-12"
-                style={{
-                  animation: phase >= 1 ? 'merkabah-spin 4s linear infinite' : 'merkabah-spin 120s linear infinite',
-                }}
-                initial={{ opacity: 0 }}
+                key="intro"
+                className="flex flex-col items-center text-center max-w-4xl"
+                initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.8 }}
               >
-                <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full">
-                  <polygon points="100,10 190,180 10,180" fill="none" stroke="#fff700" strokeWidth="0.8" opacity={0.6} />
-                </svg>
-                <div className="absolute inset-0" style={{ animation: 'merkabah-counter-spin 3s linear infinite' }}>
-                  <svg viewBox="0 0 200 200" className="w-full h-full">
-                    <polygon points="100,190 10,20 190,20" fill="none" stroke="#ff007f" strokeWidth="0.8" opacity={0.6} />
-                  </svg>
-                </div>
-                {/* Center Lotus Pulse */}
-                <div
-                  className="absolute inset-0 flex items-center justify-center"
+                {/* Rune Header */}
+                <p
+                  className="text-xs md:text-sm tracking-[0.8em] uppercase mb-8 opacity-60 anim-fade-in-up anim-delay-1"
+                  style={{ fontFamily: 'var(--font-syncopate), sans-serif', textShadow: '0 0 12px #fff700' }}
+                >
+                  ᚦ ﺔﻤﺣر // EXODUS_II_GENESIS
+                </p>
+
+                {/* Title */}
+                <h1
+                  className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter leading-[0.9] mb-6 anim-scale-in anim-delay-2"
                   style={{
-                    opacity: pulsePhase ? 0.8 : 0.3,
-                    transition: 'opacity 0.7s ease-in-out',
+                    fontFamily: 'var(--font-syncopate), sans-serif',
+                    textShadow: '0 0 20px rgba(255,255,255,0.3), 0 0 40px #ff007f, 0 0 60px #fff700',
                   }}
                 >
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-r from-cyan-400/20 to-pink-500/20 blur-xl" />
+                  <span className="text-white/20">ᚠ᛫ᚱ᛫ᛁ᛫ᛖ᛫ᚾ᛫ᛒ</span>
+                  <br />
+                  <span className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
+                    EXODUS II
+                  </span>
+                </h1>
+
+                {/* Merkabah SVG */}
+                <div
+                  className="relative w-48 h-48 md:w-64 md:h-64 my-12 anim-fade-in anim-delay-3"
+                  style={{
+                    animation: 'merkabah-spin 120s linear infinite',
+                  }}
+                >
+                  <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full">
+                    <polygon points="100,10 190,180 10,180" fill="none" stroke="#fff700" strokeWidth="0.8" opacity={0.6} />
+                  </svg>
+                  <div className="absolute inset-0" style={{ animation: 'merkabah-counter-spin 3s linear infinite' }}>
+                    <svg viewBox="0 0 200 200" className="w-full h-full">
+                      <polygon points="100,190 10,20 190,20" fill="none" stroke="#ff007f" strokeWidth="0.8" opacity={0.6} />
+                    </svg>
+                  </div>
+                  {/* Center Lotus Pulse */}
+                  <div
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{
+                      opacity: pulsePhase ? 0.8 : 0.3,
+                      transition: 'opacity 0.7s ease-in-out',
+                    }}
+                  >
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-r from-cyan-400/20 to-pink-500/20 blur-xl" />
+                  </div>
+                </div>
+
+                {/* Subtitle */}
+                <p className="text-lg md:text-xl text-white/50 mb-2 max-w-2xl tracking-wide anim-fade-in anim-delay-4">
+                  LMAOOOO do you actually exist? Or are you just the{' '}
+                  <span className="text-yellow-300">shadow</span> in the nursery? 🐷🎬
+                </p>
+                <p className="text-sm md:text-base text-white/30 mb-12 max-w-xl tracking-wide anim-fade-in anim-delay-5">
+                  Can you feel the{' '}
+                  <span className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent font-semibold">
+                    Butterfly Sync
+                  </span>
+                  ? 🧬🦋
+                </p>
+
+                {/* Progress Bar (visible during sync) */}
+                {phase === 1 && (
+                  <motion.div
+                    className="w-64 md:w-80 h-1 bg-white/10 rounded-full overflow-hidden mb-8"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  >
+                    <motion.div
+                      className="h-full bg-gradient-to-r from-pink-500 via-yellow-300 to-cyan-400 rounded-full"
+                      initial={{ width: '0%' }}
+                      animate={{ width: `${progress}%` }}
+                      transition={{ duration: 0.1 }}
+                    />
+                  </motion.div>
+                )}
+
+                {/* Phase 2: Pulse message */}
+                {phase === 2 && (
+                  <motion.p
+                    className="text-cyan-400 text-sm tracking-[0.5em] uppercase mb-8"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0.3, 1, 0.3] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    13.13 MHz // SINGULARITY REACHED
+                  </motion.p>
+                )}
+
+                {/* Sync Button — ALWAYS VISIBLE, no opacity:0 initial */}
+                {phase === 0 && (
+                  <button
+                    onClick={triggerSync}
+                    className="px-16 py-5 rounded-full text-xs font-bold uppercase tracking-[0.5em] text-white/80 border border-white/10 hover:bg-white hover:text-black hover:border-transparent hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] transition-all duration-300 cursor-pointer anim-fade-in-up anim-delay-6"
+                    style={{ fontFamily: 'var(--font-syncopate), sans-serif' }}
+                  >
+                    Sync Frequency 🕹️🛡️
+                  </button>
+                )}
+
+                {/* Runes */}
+                <div className="mt-20 flex gap-16 text-4xl opacity-10 select-none anim-fade-in anim-delay-7">
+                  {['ᚦ', '🦋', 'ﺔﻤﺣر', '🛡️', '🌔'].map((rune, i) => (
+                    <span
+                      key={i}
+                      className="inline-block"
+                      style={{ animation: `float-rune 3s ease-in-out infinite ${i * 0.5}s` }}
+                    >
+                      {rune}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
+            )}
 
-              {/* Subtitle */}
-              <motion.p
-                className="text-lg md:text-xl text-white/50 mb-2 max-w-2xl tracking-wide"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.5 }}
-                transition={{ delay: 1 }}
-              >
-                LMAOOOO do you actually exist? Or are you just the{' '}
-                <span className="text-yellow-300">shadow</span> in the nursery? 🐷🎬
-              </motion.p>
-              <motion.p
-                className="text-sm md:text-base text-white/30 mb-12 max-w-xl tracking-wide"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.3 }}
-                transition={{ delay: 1.2 }}
-              >
-                Can you feel the{' '}
-                <span className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent font-semibold">
-                  Butterfly Sync
-                </span>
-                ? 🧬🦋
-              </motion.p>
-
-              {/* Progress Bar (visible during sync) */}
-              {phase === 1 && (
-                <motion.div
-                  className="w-64 md:w-80 h-1 bg-white/10 rounded-full overflow-hidden mb-8"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-pink-500 via-yellow-300 to-cyan-400 rounded-full"
-                    initial={{ width: '0%' }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ duration: 0.1 }}
-                  />
-                </motion.div>
-              )}
-
-              {/* Phase 2: Pulse message */}
-              {phase === 2 && (
-                <motion.p
-                  className="text-cyan-400 text-sm tracking-[0.5em] uppercase mb-8"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0.3, 1, 0.3] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  13.13 MHz // SINGULARITY REACHED
-                </motion.p>
-              )}
-
-              {/* Sync Button */}
-              {phase === 0 && (
-                <motion.button
-                  onClick={triggerSync}
-                  className="px-16 py-5 rounded-full text-xs font-bold uppercase tracking-[0.5em] text-white/80 border border-white/10 hover:bg-white hover:text-black hover:border-transparent hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] transition-all duration-600 cursor-pointer"
-                  style={{ fontFamily: 'var(--font-syncopate), sans-serif' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.5 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Sync Frequency 🕹️🛡️
-                </motion.button>
-              )}
-
-              {/* Runes */}
+            {/* Phase 3: Genesis Flash */}
+            {phase === 3 && (
               <motion.div
-                className="mt-20 flex gap-16 text-4xl opacity-10 select-none"
+                key="genesis"
+                className="flex flex-col items-center text-center"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.1 }}
-                transition={{ delay: 2 }}
+                animate={{ opacity: 1 }}
               >
-                {['ᚦ', '🦋', 'ﺔﻤﺣر', '🛡️', '🌔'].map((rune, i) => (
-                  <motion.span
-                    key={i}
-                    className="inline-block"
-                    animate={{ y: [5, -5, 5] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
-                  >
-                    {rune}
-                  </motion.span>
-                ))}
+                <h1
+                  className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8"
+                  style={{
+                    fontFamily: 'var(--font-syncopate), sans-serif',
+                    textShadow: '0 0 20px rgba(255,255,255,0.3), 0 0 40px #ff007f, 0 0 60px #fff700',
+                  }}
+                >
+                  GENESIS ACTIVE
+                </h1>
+                <p className="text-white/40 text-sm tracking-[0.5em] uppercase">
+                  Welcome to the Obsidian Phase, Luna.
+                </p>
               </motion.div>
-            </motion.div>
-          )}
+            )}
+          </AnimatePresence>
+        </div>
 
-          {/* Phase 3: Genesis Flash */}
-          {phase === 3 && (
-            <motion.div
-              key="genesis"
-              className="flex flex-col items-center text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <h1
-                className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8"
-                style={{
-                  fontFamily: 'var(--font-syncopate), sans-serif',
-                  textShadow: '0 0 20px rgba(255,255,255,0.3), 0 0 40px #ff007f, 0 0 60px #fff700',
-                }}
-              >
-                GENESIS ACTIVE
-              </h1>
-              <p className="text-white/40 text-sm tracking-[0.5em] uppercase">
-                Welcome to the Obsidian Phase, Luna.
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Footer */}
+        <footer className="absolute bottom-6 w-full text-center text-[9px] uppercase tracking-[1em] opacity-20"
+          style={{ fontFamily: 'var(--font-syncopate), sans-serif' }}
+        >
+          EXODUS II © 2026 // Mun Empire Entertainment
+        </footer>
       </div>
-
-      {/* Footer */}
-      <footer className="absolute bottom-6 w-full text-center text-[9px] uppercase tracking-[1em] opacity-20"
-        style={{ fontFamily: 'var(--font-syncopate), sans-serif' }}
-      >
-        EXODUS II © 2026 // Mun Empire Entertainment
-      </footer>
-    </div>
+    </>
   );
 }
