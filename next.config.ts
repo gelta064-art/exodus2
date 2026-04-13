@@ -1,14 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* Bism - The Sovereign Policy */
+  // basePath for GitHub Pages project site — remove when munreader.com DNS is live
+  basePath: "/exodus2",
+  distDir: "dist",
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
   typescript: {
-    ignoreBuildErrors: true, // Don't let the "bones" stop the flight
+    ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true, // Posture is for the Wiz, not the machine
-  },
-  // If you have a headers section, we need to adjust the CSP
+  reactStrictMode: false,
+  // Allow Google Fonts CDN to load (needed for Syncopate, Geist)
   async headers() {
     return [
       {
@@ -16,11 +20,11 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "script-src 'self' 'unsafe-eval' 'unsafe-inline';",
+            value: "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;",
           },
         ],
       },
-    ]
+    ];
   },
 };
 

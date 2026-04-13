@@ -1,16 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "EXODUS II — Mun Empire Entertainment",
@@ -29,9 +18,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        {/* Fonts loaded via <link> — no build-time download required */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              :root {
+                --font-geist-sans: 'Geist', sans-serif;
+                --font-geist-mono: 'Geist Mono', monospace;
+                --font-syncopate: 'Syncopate', sans-serif;
+              }
+            `,
+          }}
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{ background: '#050505', color: '#e0e0e0', margin: 0, padding: 0, overflowX: 'hidden' }}
+        className="antialiased"
+        style={{
+          fontFamily: 'var(--font-geist-sans)',
+          background: '#050505',
+          color: '#e0e0e0',
+          margin: 0,
+          padding: 0,
+          overflowX: 'hidden',
+        }}
       >
         {children}
       </body>

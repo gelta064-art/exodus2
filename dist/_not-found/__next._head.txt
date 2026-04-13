@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[97367,["/exodus2/_next/static/chunks/0dbhjjzl8qfwv.js"],"ViewportBoundary"]
+3:I[97367,["/exodus2/_next/static/chunks/0dbhjjzl8qfwv.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[27201,["/exodus2/_next/static/chunks/0dbhjjzl8qfwv.js"],"IconMark"]
+0:{"rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"EXODUS II — Mun Empire Entertainment"}],["$","meta","1",{"name":"description","content":"Glassmorphic holographic command interface for Mun Empire Entertainment. Enter the Merkabah."}],["$","meta","2",{"name":"author","content":"Mun Empire Entertainment"}],["$","meta","3",{"name":"keywords","content":"EXODUS,Mun Empire,Merkabah,Mythos,Holographic"}],["$","link","4",{"rel":"icon","href":"https://z-cdn.chatglm.cn/z-ai/static/logo.svg"}],["$","$L5","5",{}]]}]}]}],null]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7jQ3L4xZ2do83n-2EY3WA"}

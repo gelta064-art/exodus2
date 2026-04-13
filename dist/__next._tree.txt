@@ -1,0 +1,3 @@
+:HL["/exodus2/_next/static/chunks/0jju.a7e6_tcc.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"7jQ3L4xZ2do83n-2EY3WA"}
