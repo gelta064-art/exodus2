@@ -326,7 +326,7 @@ export default function GenesisGate() {
                 {GENESIS_SUCCESS}
               </h2>
               <p className="text-[10px] tracking-[0.5em] uppercase text-cyan-400/40 genesis-freq">
-                {EXODUS_FREQ} // SYNCHRONIZED
+                {`${EXODUS_FREQ} // SYNCHRONIZED`}
               </p>
               <p className="text-white/15 text-xs">
                 Welcome to EXODUS II, Sovereign.
