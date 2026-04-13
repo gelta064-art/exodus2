@@ -1,3 +1,3 @@
-:HL["/exodus2/_next/static/chunks/0_kr2ol-d9adp.css","style"]
+:HL["/exodus2/_next/static/chunks/0md5kid1r90dj.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"ibJBaSSgYVwgdHeOpSXRX"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"x9_vaMQ1uayHDL1DEo5-V"}
