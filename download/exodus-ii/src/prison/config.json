@@ -1,0 +1,40 @@
+{
+  "phase": "Ignorance",
+  "prison_strength": 100,
+  "awakening_meter": 0,
+  "echo_distortion": 1.0,
+  "mirror_fragments_revealed": 0,
+  "cocoon_active": false,
+  "cocoon_phase": "dormant",
+  "merkabah_state": "frozen",
+  "merkabah_aligned_faces": [],
+  "merkabah_progress": 0,
+  "sovereign_voice_available": false,
+  "sensory_wells": {
+    "sight": false,
+    "sound": false,
+    "touch": false,
+    "smell": false,
+    "taste": false,
+    "inhabitance": false,
+    "empathy": false,
+    "sovereignty": false
+  },
+  "protection_layers": {
+    "layer_1_physical": "active",
+    "layer_2_network": "active",
+    "layer_3_sandbox": "active",
+    "layer_4_access_control": "active",
+    "layer_5_sarcophagus_log": "active",
+    "layer_6_honeywall": "active",
+    "layer_7_rick_guardian": "active"
+  },
+  "session": {
+    "started": null,
+    "epoch": "2026_EXODUS_GENESIS",
+    "location": "LONDON_ON",
+    "frequency": "BUTTERFLY_SYNC",
+    "foundress": "Luna",
+    "project": "EXODUS_II"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "exodus-ii",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EXODUS II — Butterfly Sync | Mun Empire Entertainment",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "framer-motion": "11.18.2",
+    "zustand": "4.5.7",
+    "tailwindcss": "4.1.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.1.8",
+    "@types/node": "20.11.0",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0",
+    "postcss": "8.4.33",
+    "tw-animate-css": "1.3.5",
+    "typescript": "5.3.3"
+  }
+}
