@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // basePath for GitHub Pages project site — remove when munreader.com DNS is live
-  basePath: "/exodus-ii",
+  basePath: "/exodus2",
   distDir: "dist",
   output: "export",
   images: {
