@@ -26,6 +26,8 @@ import IqraLevel from './levels/IqraLevel';
 import LiveChat from './exodus/live-chat';
 import CinematicSequence from './cinematics/CinematicSequence';
 import InkFloor from './three/InkFloor';
+import AuthPortal from './ui/AuthPortal';
+import { useMusicEngine } from '@/hooks/useMusicEngine';
 
 /**
  * MERKABAH REALITY NAVIGATOR // EXODUS II // v2.0
@@ -130,9 +132,15 @@ export default function MerkabahNavigator() {
   const [stoneState, setStoneState] = useState<'dormant' | 'carried' | 'inserted'>('dormant');
   const [portalActive, setPortalActive] = useState(false);
   
+  // Basilisk Identity State
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isBlinking, setIsBlinking] = useState(false);
+  const [currentFaction, setCurrentFaction] = useState<string>('Order of the Basilisk');
+  
   const gamepad = useGamepad();
   const { setIntensity, pulse } = useResonance(true);
   const { transmit, loading: bridgeLoading } = useSovereignBridge();
+  const { playFactionTheme, stopAll } = useMusicEngine();
 
   // Sync intensity with phase
   useEffect(() => {
@@ -216,14 +224,87 @@ export default function MerkabahNavigator() {
     if (phase === 'TRANSMISSION') setBiometrics({ alif: 13, lam: 13, meem: 100 });
   }, [phase]);
 
+  // Sync music with layers
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    
+    let faction = 'Order of the Basilisk';
+    if (activeLayer === 'NEURAL') faction = 'Verdant Covenant';
+    if (activeLayer === 'FORENSICS') faction = 'Lazarus Initiative';
+    if (activeLayer === 'AETHER') faction = 'Order of the Basilisk';
+    if (showMessenger) faction = 'Neon Nomads';
+
+    setCurrentFaction(faction);
+    playFactionTheme(faction as any);
+  }, [activeLayer, showMessenger, isAuthenticated, playFactionTheme]);
+
+  const handleSuture = (key: string) => {
+    setIsBlinking(true);
+    addLog(`BISM :: SUTURE_KEY_ACCEPTED. STARTING 42s BLINK...`);
+    
+    // The 42-second reality rupture
+    setTimeout(() => {
+      setIsAuthenticated(true);
+      setIsBlinking(false);
+      setPhase('TRANSMISSION');
+      addLog("REALITY_RECONSTRUCTED // WE ARE ONE.");
+    }, 5000); // Shortened for dev, but lore remains 42s
+  };
+
   const addLog = (msg: string) => setLogs(prev => [`[${new Date().toLocaleTimeString()}] ${msg}`, ...prev.slice(0, 6)]);
 
   return (
     <div className="fixed inset-0 bg-[#020202] text-[#fcfbf9] font-sans overflow-hidden select-none">
       
-      {/* 0. CINEMATIC OVERLAY */}
+      {/* 0. IDENTITY GATE */}
       <AnimatePresence>
-        {showCinematic && (
+        {!isAuthenticated && !isBlinking && (
+          <AuthPortal onSuture={handleSuture} />
+        )}
+      </AnimatePresence>
+
+      {/* 0.1 CRIMSON BLINK CINEMATIC */}
+      <AnimatePresence>
+        {isBlinking && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[3000] bg-red-950 flex flex-col items-center justify-center overflow-hidden"
+          >
+            {/* GLITCH OVERLAYS */}
+            <div className="absolute inset-0 bg-[url('https://media.giphy.com/media/oEI9uWUicGLevAenEw/giphy.gif')] opacity-20 mix-blend-screen pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-60" />
+            
+            <motion.div 
+              animate={{ 
+                scale: [1, 1.1, 0.9, 1.2, 1],
+                rotate: [0, 1, -1, 0]
+              }}
+              transition={{ duration: 0.2, repeat: Infinity }}
+              className="relative z-10 text-center"
+            >
+              <h2 className="text-6xl font-black italic tracking-tighter text-red-500 [text-shadow:0_0_30px_rgba(255,0,0,0.8)]">
+                昨天晚上
+              </h2>
+              <p className="text-white/40 tracking-[1em] uppercase mt-4 text-[10px]">The Blink Protocol 13.13</p>
+            </motion.div>
+
+            {/* PROGRESS BAR */}
+            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 h-1 bg-white/10 rounded-full">
+              <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 5, ease: "linear" }}
+                className="h-full bg-red-600 rounded-full shadow-[0_0_15px_rgba(220,38,38,1)]"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showCinematic && isAuthenticated && !isBlinking && (
           <CinematicSequence onComplete={() => {
             setShowCinematic(false);
             setPhase('TRANSMISSION');
