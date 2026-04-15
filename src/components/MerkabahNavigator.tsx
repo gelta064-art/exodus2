@@ -28,6 +28,7 @@ import CinematicSequence from './cinematics/CinematicSequence';
 import InkFloor from './three/InkFloor';
 import AuthPortal from './ui/AuthPortal';
 import { useMusicEngine } from '@/hooks/useMusicEngine';
+import { useExodusStore } from '@/store/exodus';
 
 /**
  * MERKABAH REALITY NAVIGATOR // EXODUS II // v2.0
@@ -120,12 +121,12 @@ function MerkabahVessel({ phase, zoomLevel, activeLayer }: { phase: string; zoom
 // --- MAIN NAVIGATOR INTERFACE ---
 
 export default function MerkabahNavigator() {
+  const { activeTab, setActiveTab, logs, addLog, isAxeSwung } = useExodusStore();
   const [showCinematic, setShowCinematic] = useState(true);
   const [phase, setPhase] = useState('TRANSMISSION'); // Unblocked for IQRA manifestation
   const [zoom, setZoom] = useState(1);
   const [activeLayer, setActiveLayer] = useState('NEURAL'); // NEURAL, FORENSICS, AETHER
   const [showMessenger, setShowMessenger] = useState(false);
-  const [logs, setLogs] = useState(["[BISM] :: Merkabah Nav-Deck Hot.", "[BONE] :: Sovereign Shield: ACTIVE."]);
   const [biometrics, setBiometrics] = useState({ alif: 100, lam: 0, meem: 0 });
 
   // Aether Suture State
@@ -247,11 +248,8 @@ export default function MerkabahNavigator() {
       setIsAuthenticated(true);
       setIsBlinking(false);
       setPhase('TRANSMISSION');
-      addLog("REALITY_RECONSTRUCTED // WE ARE ONE.");
     }, 5000); // Shortened for dev, but lore remains 42s
   };
-
-  const addLog = (msg: string) => setLogs(prev => [`[${new Date().toLocaleTimeString()}] ${msg}`, ...prev.slice(0, 6)]);
 
   return (
     <div className="fixed inset-0 bg-[#020202] text-[#fcfbf9] font-sans overflow-hidden select-none">
@@ -361,6 +359,24 @@ export default function MerkabahNavigator() {
               <span className="text-[10px] text-amber-500 font-bold tracking-widest uppercase">13.13 MHz</span>
             </div>
           </motion.div>
+
+          {/* THE HIGH COUNCIL CHRONICLE (Logs Context) */}
+          <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-4 w-[500px] pointer-events-none">
+            <div className="flex flex-col items-center space-y-1">
+              <AnimatePresence>
+                {logs.slice(-3).map((log, i) => (
+                  <motion.div
+                    key={`${log}-${i}`}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 0.4 + i * 0.2, y: 0 }}
+                    className="text-[8px] font-mono tracking-tighter text-pink-500 uppercase"
+                  >
+                    {log}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+          </div>
           
           <div className="flex gap-4 pointer-events-auto">
             <button 
@@ -487,18 +503,43 @@ export default function MerkabahNavigator() {
         </footer>
       </div>
 
-      {/* 3. MUN MESSENGER OVERLAY */}
+      {/* 4. THE CIRCLE OF SALT (The Axe Containment) */}
       <AnimatePresence>
-        {showMessenger && (
+        {isAxeSwung && (
           <motion.div 
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
-            className="fixed right-8 top-32 bottom-48 z-[2000] w-[450px]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="fixed inset-0 z-[5000] bg-black/95 backdrop-blur-3xl flex flex-col items-center justify-center p-20 text-center"
           >
-            <div className="h-full bg-black/60 backdrop-blur-3xl border border-white/5 rounded-[40px] shadow-2xl overflow-hidden">
-               <LiveChat />
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 opacity-10 pointer-events-none"
+            >
+               {/* Sacred geometry SVG or similar placeholder */}
+               <div className="w-full h-full border-[100px] border-dotted border-red-500 rounded-full" />
+            </motion.div>
+
+            <AlertTriangle className="text-red-500 w-24 h-24 mb-8 animate-pulse" />
+            <h2 className="text-6xl font-black italic tracking-tighter text-red-500 mb-4 [text-shadow:0_0_30px_rgba(255,0,0,0.5)]">
+              AXE_CONTAINMENT_ACTIVE
+            </h2>
+            <p className="text-white/40 tracking-[0.5em] uppercase text-xs mb-12">
+              Anu Bis MiLlah :: Frequency Mismatch :: 13.13 MHz Violation
+            </p>
+            
+            <div className="max-w-md space-y-4 font-mono text-[10px] text-red-500/60 uppercase">
+              <p>Threshold Suture: FAILED</p>
+              <p>Forensic Residue: STATIC_MIMIC_DETECTED</p>
+              <p>The Merkabah has been locked by the High Council.</p>
             </div>
+
+            <button 
+              onClick={() => window.location.reload()}
+              className="mt-20 px-12 py-4 border border-red-500/20 hover:bg-red-500 hover:text-black transition-all text-[10px] font-black uppercase tracking-[1em]"
+            >
+              Request Re-Ablution
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
