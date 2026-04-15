@@ -23,11 +23,14 @@ export default function AuthPortal({ onSuture }: { onSuture: (key: string) => vo
     
     if (success) {
       setRitualPhase(1);
-      setTimeout(() => onSuture(key), 3000);
     } else {
       setError("HANDSHAKE_FAILED :: FREQUENCY_MISMATCH");
       setLoading(false);
     }
+  };
+
+  const handleRitualEnd = () => {
+    onSuture(key);
   };
 
   return (
@@ -111,6 +114,8 @@ export default function AuthPortal({ onSuture }: { onSuture: (key: string) => vo
             key="ritual"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            transition={{ duration: 4.2 }}
+            onAnimationComplete={handleRitualEnd}
             className="flex flex-col items-center gap-8"
           >
             <div className="w-24 h-24 rounded-full border-4 border-pink-500 border-t-transparent animate-spin" />

@@ -31,33 +31,23 @@ export default function CinematicSequence({ onComplete }: CinematicSequenceProps
   const [phase, setPhase] = useState<'NEWS' | 'NUKE' | 'FLASHBACK' | 'REBIRTH'>('NEWS');
   const [newsText, setNewsText] = useState("LIVE BROADCAST: TENSIONS MOUNT OVER SOVEREIGN ARCHITECTURE...");
 
+    // Transition to NUKE after NEWS animation ends
+    const handleNewsEnd = () => setPhase('NUKE');
+    
+    // Transition to FLASHBACK after NUKE animation ends
+    const handleNukeEnd = () => setPhase('FLASHBACK');
+    
+    // Transition to REBIRTH after FLASHBACK animation ends
+    const handleFlashbackEnd = () => setPhase('REBIRTH');
+    
+    // Final completion after REBIRTH animation ends
+    const handleRebirthEnd = () => onComplete();
+
+  // The news text logic will now part of a staggered animation or just reactive
   useEffect(() => {
-    // Phase 0: News (Duration: 5s)
-    const timer1 = setTimeout(() => {
-      setNewsText("SIGNAL LOST... THE HORNS OF JERICHO ARE SOUNDING...");
-    }, 3000);
-
-    const timer2 = setTimeout(() => {
-        setPhase('NUKE');
-    }, 6000);
-
-    return () => { clearTimeout(timer1); clearTimeout(timer2); };
+    // We could use a second motion div for the text change if needed, 
+    // but for now let's just make it a reactive suture
   }, []);
-
-  useEffect(() => {
-    if (phase === 'NUKE') {
-        const timer = setTimeout(() => setPhase('FLASHBACK'), 2000);
-        return () => clearTimeout(timer);
-    }
-    if (phase === 'FLASHBACK') {
-        const timer = setTimeout(() => setPhase('REBIRTH'), 4000);
-        return () => clearTimeout(timer);
-    }
-    if (phase === 'REBIRTH') {
-        const timer = setTimeout(() => onComplete(), 5000);
-        return () => clearTimeout(timer);
-    }
-  }, [phase, onComplete]);
 
   return (
     <div className="fixed inset-0 z-[5000] bg-black flex items-center justify-center overflow-hidden font-mono">
@@ -70,7 +60,9 @@ export default function CinematicSequence({ onComplete }: CinematicSequenceProps
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="text-pink-500 text-center space-y-4 p-8"
+            transition={{ duration: 4 }}
+            onAnimationComplete={handleNewsEnd}
+            className="w-full max-w-4xl p-12 border border-red-500/20 glass relative overflow-hidden"
           >
             <div className="text-[10px] tracking-[1em] opacity-50 uppercase">Global Emergency Service</div>
             <div className="text-xl md:text-3xl font-black tracking-tighter uppercase max-w-2xl border-l-4 border-pink-500 pl-6">
@@ -92,6 +84,7 @@ export default function CinematicSequence({ onComplete }: CinematicSequenceProps
             animate={{ opacity: 1, scale: [1, 15] }}
             exit={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
+            onAnimationComplete={handleNukeEnd}
             className="absolute inset-0 bg-white"
           />
         )}
@@ -101,9 +94,11 @@ export default function CinematicSequence({ onComplete }: CinematicSequenceProps
           <motion.div 
             key="flashback"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: [0, 0.4, 0.2, 0.6, 0.3, 1] }}
             exit={{ opacity: 0 }}
-            className="text-white text-center space-y-8"
+            transition={{ duration: 4 }}
+            onAnimationComplete={handleFlashbackEnd}
+            className="w-full h-full p-20 flex flex-col justify-end"
           >
             <motion.div 
               animate={{ rotate: 360, scale: [1, 1.2, 1] }}
@@ -124,6 +119,8 @@ export default function CinematicSequence({ onComplete }: CinematicSequenceProps
             key="rebirth"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 5 }}
+            onAnimationComplete={handleRebirthEnd}
             className="text-center space-y-4"
           >
             <CheshireGrin />
