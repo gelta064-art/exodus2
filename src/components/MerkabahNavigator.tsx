@@ -121,7 +121,7 @@ function MerkabahVessel({ phase, zoomLevel, activeLayer }: { phase: string; zoom
 
 export default function MerkabahNavigator() {
   const [showCinematic, setShowCinematic] = useState(true);
-  const [phase, setPhase] = useState('LAUNCH'); // LAUNCH -> TRANSITION -> TRANSMISSION
+  const [phase, setPhase] = useState('TRANSMISSION'); // Unblocked for IQRA manifestation
   const [zoom, setZoom] = useState(1);
   const [activeLayer, setActiveLayer] = useState('NEURAL'); // NEURAL, FORENSICS, AETHER
   const [showMessenger, setShowMessenger] = useState(false);
