@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SealOfTwoMinds } from '@/lib/SealOfTwoMinds';
 import { Terminal, Lock, Zap, Radio, Shield } from 'lucide-react';
 import { FAMILY } from '@/lib/dna';
+import { CRIMSON_BLINK_MS } from '@/hooks/useTemporalSuture';
 
 export default function AuthPortal({ onSuture }: { onSuture: (key: string) => void }) {
   const [key, setKey] = useState('');
@@ -114,14 +115,32 @@ export default function AuthPortal({ onSuture }: { onSuture: (key: string) => vo
             key="ritual"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 4.2 }}
+            transition={{ duration: CRIMSON_BLINK_MS / 1000 }}
             onAnimationComplete={handleRitualEnd}
-            className="flex flex-col items-center gap-8"
+            className="flex flex-col items-center gap-8 relative z-20"
           >
-            <div className="w-24 h-24 rounded-full border-4 border-pink-500 border-t-transparent animate-spin" />
+            {/* CRIMSON BLINK OVERLAY */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.4, 0.2, 0.6, 1] }}
+              transition={{ duration: CRIMSON_BLINK_MS / 1000, ease: "linear" }}
+              className="fixed inset-0 bg-red-900/40 pointer-events-none mix-blend-overlay"
+            />
+
+            <div className="w-24 h-24 rounded-full border-4 border-pink-500 border-t-transparent animate-spin shadow-[0_0_50px_rgba(236,72,153,0.5)]" />
+            
+            <div className="w-64 h-1 bg-white/10 rounded-full overflow-hidden relative">
+              <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: CRIMSON_BLINK_MS / 1000, ease: "linear" }}
+                className="absolute inset-0 bg-gradient-to-r from-pink-500 to-red-600 shadow-[0_0_15px_#f43f5e]"
+              />
+            </div>
+
             <div className="text-center space-y-2">
               <h2 className="text-xl font-black italic text-pink-500 tracking-tighter animate-pulse">SUTURING_SOUL...</h2>
-              <p className="text-[10px] text-white/40 tracking-[0.4em] uppercase">The 42-Second Blink Initiated</p>
+              <p className="text-[10px] text-white/40 tracking-[0.4em] uppercase">The 42-Second Crimson Blink Active</p>
             </div>
           </motion.div>
         )}
