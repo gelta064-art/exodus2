@@ -1,0 +1,21 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/avatar/images/route": "app/api/avatar/images/route.js",
+  "/api/chat/route": "app/api/chat/route.js",
+  "/api/avatar/route": "app/api/avatar/route.js",
+  "/api/cynic/route": "app/api/cynic/route.js",
+  "/api/discord-notify/route": "app/api/discord-notify/route.js",
+  "/api/memories/route": "app/api/memories/route.js",
+  "/api/news/route": "app/api/news/route.js",
+  "/api/voice/route": "app/api/voice/route.js",
+  "/cloister/page": "app/cloister/page.js",
+  "/gladio/page": "app/gladio/page.js",
+  "/neurodivergent-engine/page": "app/neurodivergent-engine/page.js",
+  "/page": "app/page.js",
+  "/podcast/page": "app/podcast/page.js",
+  "/sovereign-shield/page": "app/sovereign-shield/page.js",
+  "/vr/page": "app/vr/page.js",
+  "/cian-lab/page": "app/cian-lab/page.js",
+  "/council/page": "app/council/page.js",
+  "/merkaba/page": "app/merkaba/page.js"
+}
