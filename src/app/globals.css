@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 2%; /* Deep Obsidian */
+    --foreground: 0 0% 92%;  /* Parchment White */
+    
+    /* 🏺 THE LIVING LIBRARY: FIRE & AMBER */
+    --cave-amber: 72% 0.15 45; 
+    --fire-glow: 60% 0.2 35;
+    --shadow-obsidian: 10% 0.01 270;
+
+    --mun-pink: #ff2d7a;
+    --mun-gold: #ffd700;
+    --mun-cyan: #00f2ff;
+    --mun-fire: #ff6a00;
+    --mun-amber: #f5d142;
+    --mun-glass: rgba(5, 5, 5, 0.7);
+    --mun-border: rgba(245, 209, 66, 0.1);
+  }
+
+  body {
+    background: oklch(var(--shadow-obsidian));
+    color: oklch(var(--foreground));
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* 🦋 SERIF FOR WISDOM (KYBALION STYLE) */
+  h1, h2, h3, .serif-wisdom {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bonfire-vignette {
+    background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+  }
+
+  .firelight-flicker {
+    animation: fire-flicker 5s ease-in-out infinite;
+    filter: blur(80px);
+    opacity: 0.4;
+  }
+
+  @keyframes fire-flicker {
+    0%, 100% { opacity: 0.3; transform: scale(1) translateY(0); }
+    33% { opacity: 0.5; transform: scale(1.1) translateY(-10px); }
+    66% { opacity: 0.4; transform: scale(0.95) translateY(5px); }
+  }
+
+  .glass-cave {
+    @apply backdrop-blur-2xl border border-white/5 shadow-2xl;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  }
+
+  .pill-input {
+    @apply rounded-full px-8 py-4 glass-cave focus-within:border-amber-500/30 transition-all duration-500;
+    box-shadow: 0 0 30px rgba(245, 209, 66, 0.05);
+  }
+}
+

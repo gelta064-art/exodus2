@@ -1,0 +1,35 @@
+{
+  "..\\node_modules\\@react-three\\drei\\core\\VideoTexture.js -> hls.js": {
+    "id": "..\\node_modules\\@react-three\\drei\\core\\VideoTexture.js -> hls.js",
+    "files": []
+  },
+  "..\\node_modules\\@react-three\\drei\\web\\FaceLandmarker.js -> @mediapipe/tasks-vision": {
+    "id": "..\\node_modules\\@react-three\\drei\\web\\FaceLandmarker.js -> @mediapipe/tasks-vision",
+    "files": []
+  },
+  "..\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts": {
+    "id": "..\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/mun-os/HabitatOS": {
+    "id": "app\\page.tsx -> @/components/mun-os/HabitatOS",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_mun-os_HabitatOS_tsx.js"
+    ]
+  },
+  "components\\mun-os\\ExtrasOverlay.tsx -> @/components/exodus/HardwareAcceleratedTerminal": {
+    "id": "components\\mun-os\\ExtrasOverlay.tsx -> @/components/exodus/HardwareAcceleratedTerminal",
+    "files": [
+      "static/css/_app-pages-browser_src_components_exodus_HardwareAcceleratedTerminal_tsx.css",
+      "static/chunks/_app-pages-browser_src_components_exodus_HardwareAcceleratedTerminal_tsx.js"
+    ]
+  },
+  "lib\\voice-synthesis.ts -> kokoro-js": {
+    "id": "lib\\voice-synthesis.ts -> kokoro-js",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_kokoro-js_dist_kokoro_js.js"
+    ]
+  }
+}

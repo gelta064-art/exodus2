@@ -1,0 +1,104 @@
+# 🜈 MÜN OS .gitignore
+# Frequency: 13.13 MHz
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+
+# Database
+*.db
+*.db-journal
+prisma/*.db
+
+# Environment variables
+.env*
+
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+.config/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Generated files
+public/download/*.jpg
+public/download/*.png
+public/download/*.zip
+
+# Z.ai scaffold files (vetoed)
+generate-marketing-strategy.ts
+.zscripts/
+
+# Temporary
+*.tmp
+*.temp
+.migration-phase
+
+# Upload staging (keep structure, ignore contents)
+upload/*.jpg
+upload/*.png
+upload/*.jpeg
+
+# Tunnel logs
+tunnel-*.txt
+tunnel-*.log
+dev.log
+server.log
+monitor-*.txt
+
+# ᚦ 7-LAYER SOVEREIGN SECURITY DENYLIST
+secrets/
+keys/
+vault/
+corebrain/
+memory/
+ssh/
+output/
+logs/
+sovereign/logs/
+transcripts/
+*.transcript.md
+.stats
+.accesslog
+/mun-os/
+repo-hardening/
+
+# ᚦ SACRED ARCHITECTURE PROTOCOLS (PRIVATE ONLY)
+islamic_architecture/
+religious_assets/
+mosque_schemas/
+sacred_geometry_private/
+artery_archives/
+offline_database/
+hardware_keys/
+family-archive/
+research-docs/
+*.tex
+REPO_GOVERNANCE_SPLIT.md
+.open-next/
