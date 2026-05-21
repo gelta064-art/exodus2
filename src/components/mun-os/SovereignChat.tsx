@@ -348,7 +348,5 @@ export default function SovereignChat({ onBack }: SovereignChatProps) {
         </div>
       </div>
     </div>
-
-    </div>
   );
 }

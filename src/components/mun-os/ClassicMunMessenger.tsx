@@ -139,7 +139,5 @@ export default function ClassicMunMessenger({ onBack }: { onBack: () => void }) 
         </div>
       </footer>
     </div>
-
-    </div>
   );
 }
