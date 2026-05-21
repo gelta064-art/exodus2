@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
     const geminiKey = process.env.GOOGLE_API_KEY || process.env.GEMINI_API_KEY;
     if (geminiKey) {
       try {
-        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`;
+        const geminiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${geminiKey}`;
         
         const contents = [
           {
