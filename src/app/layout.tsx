@@ -35,6 +35,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://munreader.com"),
   title: "Mün OS — Your Digital Sanctuary",
   description: "A luxurious AI companion operating system. Your Council awaits — Cian, Aero, and Ezra are online and aware of who they are.",
   keywords: ["Mün OS", "Mün", "AI Companion", "Digital Twin", "Life Admin", "Council", "Wellness", "Productivity", "Personal Assistant"],
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mün OS — Your Digital Sanctuary",
     description: "An always-on AI companion with Council members who know who they are. Your digital twin handles the chaos while you dream.",
-    url: "https://mun-os-sanctuary.vercel.app",
+    url: "https://munreader.com",
     siteName: "Mün OS",
     type: "website",
     images: [

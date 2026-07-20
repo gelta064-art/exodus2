@@ -1012,7 +1012,7 @@ export default function HabitatOS() {
                       THE ARQ LEDGER
                     </Link>
                     <a 
-                      href="https://my-project-alpha-khaki.vercel.app/" 
+                      href="https://munreader.com/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       onClick={() => playTypingSFX()}
