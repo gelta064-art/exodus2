@@ -237,9 +237,9 @@ export default function LandingPage() {
           transition={{ delay: 0.2 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 text-xs font-semibold tracking-widest uppercase"
           style={{
-            background: "rgba(168,85,247,0.08)",
-            border: "1px solid rgba(168,85,247,0.25)",
-            color: "#c084fc",
+            background: "rgba(255,255,255,0.03)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            color: "#e2e8f0",
           }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block" />
@@ -255,16 +255,16 @@ export default function LandingPage() {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] tracking-tight mb-6">
             Stop searching<br />
             <span
-              className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #a855f7 0%, #f472b6 50%, #00d4ff 100%)" }}
+              className="text-transparent bg-clip-text font-normal"
+              style={{ backgroundImage: "linear-gradient(180deg, #ffffff 30%, #94a3b8 100%)" }}
             >
               for jobs.
             </span>
             <br />
-            <span className="text-white/90">Start building</span>{" "}
+            <span className="text-white/80">Start simulating</span>{" "}
             <span
-              className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #22c55e 0%, #00d4ff 100%)" }}
+              className="text-transparent bg-clip-text font-normal"
+              style={{ backgroundImage: "linear-gradient(135deg, #34d399 0%, #38bdf8 100%)" }}
             >
               your future.
             </span>
@@ -276,10 +276,10 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55 }}
           className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-14"
-          style={{ color: "rgba(255,255,255,0.55)" }}
+          style={{ color: "rgba(226,232,240,0.65)" }}
         >
           MÜN is a zero-noise, AI-led command center. Test-drive your career trajectory,
-          talk to AI Council members who actually remember you, and find your sovereign path.
+          talk to AI mentors, and find your path in the high-stakes world of work.
         </motion.p>
 
         {/* CTAs */}
@@ -291,32 +291,32 @@ export default function LandingPage() {
         >
           <motion.a
             href="#access"
-            whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(168,85,247,0.5)" }}
+            whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(56,189,248,0.25)" }}
             whileTap={{ scale: 0.97 }}
-            className="px-10 py-4 rounded-2xl text-sm font-semibold tracking-widest uppercase flex items-center justify-center gap-2"
+            className="px-9 py-4 rounded-xl text-sm font-semibold tracking-wide uppercase flex items-center justify-center gap-2"
             style={{
-              background: "linear-gradient(135deg, #a855f7 0%, #f472b6 100%)",
-              boxShadow: "0 0 30px rgba(168,85,247,0.35)",
+              background: "#4f46e5",
+              boxShadow: "0 4px 20px rgba(79,70,229,0.3)",
               color: "white",
             }}
           >
-            🦋 Enter the Sanctuary
+            Start Your First Simulation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </motion.a>
           <motion.a
             href="#council"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.08)" }}
             whileTap={{ scale: 0.97 }}
-            className="px-10 py-4 rounded-2xl text-sm font-semibold tracking-widest uppercase"
+            className="px-9 py-4 rounded-xl text-sm font-semibold tracking-wide uppercase"
             style={{
-              background: "rgba(255,255,255,0.04)",
+              background: "rgba(255,255,255,0.03)",
               border: "1px solid rgba(255,255,255,0.12)",
-              color: "rgba(255,255,255,0.7)",
+              color: "rgba(255,255,255,0.85)",
             }}
           >
-            Meet the Council
+            How it works
           </motion.a>
         </motion.div>
 
