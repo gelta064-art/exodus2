@@ -575,6 +575,12 @@ export default function MunMessenger({ onBack, initialConversationId }: MunMesse
                       </div>
                     </div>
                   </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Input Bar */}
+            <div className="p-4 border-t border-white/5 bg-black/40">
               <div className="flex items-center gap-2">
                 {/* Attachment Button */}
                 <div className="relative">
