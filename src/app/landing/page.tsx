@@ -183,6 +183,7 @@ function Nav() {
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function LandingPage() {
+  const [mounted, setMounted] = useState(false);
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [spotsClaimed] = useState(127);
@@ -193,6 +194,10 @@ export default function LandingPage() {
   const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
   const heroY = useTransform(scrollY, [0, 400], [0, 60]);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const spotsRemaining = 200 - spotsClaimed;
   const progress = (spotsClaimed / 200) * 100;
 
@@ -200,6 +205,10 @@ export default function LandingPage() {
     e.preventDefault();
     if (email) setSubmitted(true);
   };
+
+  if (!mounted) {
+    return <div className="min-h-screen bg-[#030108]" />;
+  }
 
   return (
     <div
